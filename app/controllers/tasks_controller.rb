@@ -17,9 +17,9 @@ class TasksController < ApplicationController
     if @task.save
       flash[:success]='taskが正常に送信されました'
       redirect_to @task
-    else
+      else
       flash.now[:danger]='taskが送信されませんでした'
-      render :new
+    render :new
     end
   end
   
@@ -44,14 +44,14 @@ class TasksController < ApplicationController
     @task.destroy
     
     flash[:success]='Taskは正常に削除されました'
-    redirect_to task_url
+    redirect_to tasks_url
   end
-end
 
-private
 
-#s
+  private
 
-def task_params
-  params.require(:task).permit(:content)
+  def task_params
+    params.require(:task).permit(:content)
+  end
+
 end
