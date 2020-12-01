@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     
-  inclide SessionsHelper
+  include SessionsHelper
     
   private
 

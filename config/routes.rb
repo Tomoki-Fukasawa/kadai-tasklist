@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'tasks#index'
+  
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -10,11 +12,9 @@ Rails.application.routes.draw do
   get 'tasks/show'
   get 'tasks/new'
   get 'tasks/create'
-  root to: 'tasks#index'
-  
+
   get 'tasks#index', to: 'users#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'tasks#index'
   
   resources :tasks, only:[:index, :show, :new, :create]
 end
