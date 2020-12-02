@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get 'tasks/new'
   get 'tasks/create'
 
-  get 'tasks#index', to: 'users#new'
+  get 'signup', to: 'users#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  resources :tasks, only:[:index, :show, :new, :create]
+  resources :tasks, :users
 end
