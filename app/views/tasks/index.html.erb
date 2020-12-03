@@ -7,8 +7,9 @@
       <li><%= link_to task.id,task %> : <%= task.status %> &gt; <%=task.content %></li>
     <%end%>
   </ul>
+  <%= paginate @tasks%>
 
-<%= link_to '新規タスクの送信',new_task_path %>
+  <%= link_to '新規タスクの送信',new_task_path %>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
