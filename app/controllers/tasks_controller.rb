@@ -15,13 +15,14 @@ class TasksController < ApplicationController
   end
   
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     
     if @task.save
       flash[:success]='taskが正常に送信されました'
       redirect_to @task
       else
-      flash.now[:danger]='taskが送信されませんでした'
+        @tasks = current_user.tasks.order(id: :desc).page(params[:page])
+        flash.now[:danger]='taskが送信されませんでした'
     render :new
     end
   end
