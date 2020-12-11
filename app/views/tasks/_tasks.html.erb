@@ -2,7 +2,7 @@
   <li class="media mb-3">
     <div class="media-body">
       <div>
-        <%= link_to tasklist.user.name, user_path(tasklist.user)%> <span class="text-muted">posted at <%=tasklist.created_at %></spam>
+        <a><%= current_user.name %></a>
       </div>
       <div>
         <p><%= task.content%></p>
