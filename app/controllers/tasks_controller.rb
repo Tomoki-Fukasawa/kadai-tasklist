@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  before_action :require_user_logged_in
+  before_action :correct_user, only: [:destroy,:show,:update,:edit]
+  
   def index
     if logged_in?
       @task = current_user.tasks.build
